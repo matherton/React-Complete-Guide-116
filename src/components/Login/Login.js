@@ -96,7 +96,15 @@ const Login = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    ctx.onLogin(emailState.value, passwordState.value);
+    if(formIsValid) {
+      ctx.onLogin(emailState.value, passwordState.value);
+    }
+    else if (!emailIsValid) {
+
+    }
+    else {
+
+    }
   };
 
   return (
@@ -121,7 +129,7 @@ const Login = (props) => {
           onBlur={validatePasswordHandler}
         />
         <div className={classes.actions}>
-          <Button type="submit" className={classes.btn} disabled={!formIsValid}>
+          <Button type="submit" className={classes.btn}>
             Login
           </Button>
         </div>
